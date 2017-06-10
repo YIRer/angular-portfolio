@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-project",
+  "version": "1.0.0",
+  "description": "portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "my portfolio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/YIRer/angular-portfolio.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "yirer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YIRer/angular-portfolio/issues"
+  },
+  "homepage": "https://github.com/YIRer/angular-portfolio#readme"
+}
