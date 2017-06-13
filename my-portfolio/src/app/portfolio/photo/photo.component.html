@@ -1,0 +1,18 @@
+<div class="container text-center">
+  <h2>Masonry Grid</h2>
+  <button type="button" (click)="addBrick()">
+    clickME!!
+  </button>
+  <div class="card-columns">
+    <div class="card" *ngFor="let brick of photos;">
+      <img class="card-img-top img-fluid img-responsive" src="{{brick.imgsrc}}" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">{{brick.title}}</h4>
+        <p class="card-text">{{brick.description | shorten:40}}</p>
+        <p class="card-text">
+          <i>by - {{brick.auth}}</i>
+          <small class="text-muted">{{brick.date | date:'yy. MM. dd H : mm (Z)'}}</small>
+        </p>
+      </div>
+    </div>
+  </div>

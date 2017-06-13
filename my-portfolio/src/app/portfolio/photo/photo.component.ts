@@ -1,23 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { MasonryOptions } from 'angular2-masonry';
+import { Component, OnInit} from '@angular/core';
+import { Subscription} from 'rxjs/Subscription';
+
+import { PhotoBrick } from './photo.model';
+import { PhotoService} from './photo.service';
+
+declare var Jquery :any;
+declare var $:any;
 
 @Component({
   selector: 'app-photo',
   templateUrl: './photo.component.html',
-  styleUrls: ['./photo.component.css']
+  styleUrls: ['./photo.component.css'],
+  providers : [PhotoService]
 })
 export class PhotoComponent implements OnInit {
-  bricks = [
-     {title: 'Brick 1', auth:"Yellow Man", description:"Hello", date:new Date()},
-     {title: 'Brick 2', auth:"Yellow Man", description:"Hello", date:new Date()},
-     {title: 'Brick 3', auth:"Yellow Man", description:"Hello", date:new Date()},
-     {title: 'Brick 4', auth:"Yellow Man", description:"Hello", date:new Date()},
-     {title: 'Brick 5', auth:"Yellow Man", description:"Hello", date:new Date()},
-     {title: 'Brick 6', auth:"Yellow Man", description:"Hello", date:new Date()}
-   ];
-  constructor() { }
+  photos : PhotoBrick[];
+  subscription : Subscription;
+  constructor(private photoService : PhotoService) { }
 
   ngOnInit() {
+    this.subscription = this.photoService.photoListChanged
+    .subscribe(
+      (photos:PhotoBrick[])=>{
+        console.log(photos);
+        console.log(this.photos);
+        this.photos = photos
+        console.log(this.photos);
+      }
+    )
+    this.photos = this.photoService.getPhotos()
   }
-
+  addBrick(){
+    const newASDF = new PhotoBrick(
+      'asd','qwer','zxcv',"https://farm1.staticflickr.com/138/333903018_ace85e9762.jpg",new Date()
+    )
+    this.photoService.addBrick(newASDF);
+  }
 }
