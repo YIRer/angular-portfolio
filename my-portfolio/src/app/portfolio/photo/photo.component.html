@@ -1,18 +1,16 @@
-<div class="container text-center">
-  <h2>Masonry Grid</h2>
-  <button type="button" (click)="addBrick()">
-    clickME!!
+  <h1>Responsive Image Gallery</h1>
+  <hr>
+  <a routerLink="new">
+    add clickME!!
+  </a>
+  <button type="button" (click)="reverseFn()">
+    Reverse clickME!!
   </button>
-  <div class="card-columns">
-    <div class="card" *ngFor="let brick of photos;">
-      <img class="card-img-top img-fluid img-responsive" src="{{brick.imgsrc}}" alt="Card image cap">
-      <div class="card-block">
-        <h4 class="card-title">{{brick.title}}</h4>
-        <p class="card-text">{{brick.description | shorten:40}}</p>
-        <p class="card-text">
-          <i>by - {{brick.auth}}</i>
-          <small class="text-muted">{{brick.date | date:'yy. MM. dd H : mm (Z)'}}</small>
-        </p>
-      </div>
-    </div>
+  <hr>
+  <div id="gallery" class="container-fluid">
+  <app-photoItem
+  *ngFor="let brick of photos;let i = idex;"
+  [index]="i"
+  [photo]="brick">
+  </app-photoItem>
   </div>

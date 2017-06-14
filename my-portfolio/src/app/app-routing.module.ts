@@ -2,17 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { MainComponent } from './main/main.component';
-import { PhotoComponent } from './portfolio/photo/photo.component'
-
 const appRoutes : Routes =[
   {
     path:'',
-    component:MainComponent
+    component: MainComponent
   },
   {
-    path:'portfolio/photo',
-    component:PhotoComponent
+    path:'portfolio',
+    loadChildren:'./portfolio/portfolio.module#PortfolioModule'
   }
+
 ]
 
 @NgModule({
