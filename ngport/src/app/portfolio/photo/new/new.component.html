@@ -1,0 +1,45 @@
+<div class="row">
+  <!-- <div class="col-xs-12"> -->
+   <form [formGroup]="photoForm" (ngSubmit)="onSubmit()">
+     <div class="form-group col-md-4 col-sm-6">
+       <label for="title">이미지 타이틀</label>
+       <input
+         type="title"
+         formControlName="title"
+         class="form-control"
+         id="title"
+         placeholder="title">
+     </div>
+     <div class="form-group col-md-4 col-sm-6">
+       <label for="auth">올린이</label>
+       <input
+        type="text"
+        formControlName="auth"
+        class="form-control"
+        id="auth"
+        placeholder="auth">
+     </div>
+     <div class="form-group col-xs-12">
+       <label for="img">이미지 URL</label>
+       <input
+        type="text"
+        formControlName="imgsrc"
+        class="form-control"
+        id="img"
+        placeholder="image src">
+     </div>
+     <div class="form-group col-xs-12">
+        <textarea
+          class="form-control"
+          rows="3"
+          formControlName="description"
+          type="text"
+          placeholder="내용을 입력하세요."></textarea>
+     </div>
+     <div class="col-xs-12">
+       <button type="submit" class="btn btn-primary" [disabled]="!photoForm.valid">등록</button>
+       <button type="button" class="btn btn-default" (click)="onCancle()">취소</button>
+     </div>
+   </form>
+  <!-- </div> -->
+</div>
