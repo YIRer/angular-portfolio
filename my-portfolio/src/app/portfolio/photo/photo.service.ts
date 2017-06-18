@@ -54,8 +54,7 @@ export class PhotoService{
     return this.photos.slice();
   }
   addBrick(photo:PhotoBrick){
-    this.photos.push(photo);
-    console.log(this.photos);
+    this.photos.unshift(photo);
     this.PhotosIds++;
     this.photoListChanged.next(this.photos.slice());
   }

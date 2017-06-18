@@ -1,3 +1,50 @@
+<div class="row"
+*ngIf="photo.comment !== null;">
+  <div
+    class="col-xs-12"
+    *ngIf="photo.comment.length != 0; else asdf">
+    <div
+      class="row"
+      *ngFor="let comment of photo.comment; let i = index">
+      <div class="col-xs-2">
+          {{comment.auth}}
+      </div>
+      <div
+        class="col-xs-10"
+        >
+          <span class="comment">
+            {{comment.comment}}
+          </span>
+        <textarea
+          name="editComment"
+          id=""
+          class="form-control editComment hide"
+          cols="30"
+          rows="2"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="수정 후 다시 버튼을 눌러주세요."
+          maxlength="70"
+          value="{{comment.comment}}"
+          ></textarea>
+      </div>
+      <div class="col-xs-8 text-left">
+          <small>
+            {{comment.date | date:'yy.MM.dd'}}
+          </small>
+      </div>
+      <div
+       class="col-xs-4 text-right commentCtrl" style="margin-top:5px;">
+        <button class="btn btn-warning btn-xs" (click)="commnetCtrl(comment, i)"><i class="glyphicon glyphicon-cog"></i></button>
+        <button class="btn btn-danger btn-xs" (click)="deleteComment(i)"><i class="glyphicon glyphicon-trash"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #asdf>
+  <h3>코멘트가 없습니다.</h3>
+</ng-template>
+<hr>
 <div class="row">
   <form [formGroup]="commentForm">
     <div class="form-group col-xs-2">

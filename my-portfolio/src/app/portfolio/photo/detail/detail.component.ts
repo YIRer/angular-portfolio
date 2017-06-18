@@ -39,16 +39,4 @@ export class DetailComponent implements OnInit {
   onEditPhoto(){
     this.router.navigate(['edit'],{relativeTo:this.route});
   }
-  deleteComment(i:number){
-    let dd =[];
-    for(let j = 0; j < this.photo.comment.length; j++){
-      if(j != i){
-        dd.push(this.photo.comment[j]);
-      }
-    }
-    this.photo.comment = dd;
-    console.log(this.photo.comment);
-    this.photoService.onUpdate(this.photo.id, this.photo);
-
-  }
 }
