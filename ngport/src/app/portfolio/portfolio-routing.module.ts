@@ -5,7 +5,10 @@ import { PortfolioComponent } from './portfolio.component';
 const portfolioRoutes: Routes = [
   { path: '', component: PortfolioComponent},
   { path: 'photo',
-    loadChildren:'./photo/photo.module#PhotoModule' }
+    loadChildren:'./photo/photo.module#PhotoModule' },
+  // { path: 'auth',
+  //   loadChildren:'./auth/auth.module#AuthModule' },
+
 
 
 ];

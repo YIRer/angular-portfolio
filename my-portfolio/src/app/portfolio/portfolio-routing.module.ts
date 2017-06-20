@@ -6,8 +6,8 @@ const portfolioRoutes: Routes = [
   { path: '', component: PortfolioComponent},
   { path: 'photo',
     loadChildren:'./photo/photo.module#PhotoModule' },
-  { path: 'auth',
-    loadChildren:'./auth/auth.module#AuthModle' },
+  // { path: 'auth',
+  //   loadChildren:'./auth/auth.module#AuthModule' },
 
 
 

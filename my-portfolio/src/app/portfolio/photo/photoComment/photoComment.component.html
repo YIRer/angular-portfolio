@@ -2,10 +2,11 @@
 *ngIf="photo.comment !== null;">
   <div
     class="col-xs-12"
-    *ngIf="photo.comment.length != 0; else asdf">
+    *ngIf="photo.comment.length > 0; else asdf">
     <div
       class="row"
-      *ngFor="let comment of photo.comment; let i = index">
+      *ngFor="let comment of photo.comment; let i = index"
+      [@list1]="state">
       <div class="col-xs-2">
           {{comment.auth}}
       </div>
@@ -18,7 +19,7 @@
         <textarea
           name="editComment"
           id=""
-          class="form-control editComment hide"
+          class="form-control editComment animated hide"
           cols="30"
           rows="2"
           data-toggle="tooltip"

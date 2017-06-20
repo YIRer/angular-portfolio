@@ -3,6 +3,8 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { PhotoBrick } from './photo.model';
 import { PhotoService} from './photo.service';
 import { Subscription} from 'rxjs/Subscription';
+import { Response } from '@angular/http';
+import { DataService } from '../../shared/data.service';
 
 @Component({
   selector: 'app-photo',
@@ -11,20 +13,40 @@ import { Subscription} from 'rxjs/Subscription';
 })
 export class PhotoComponent implements OnInit, OnDestroy {
 
-  photos : PhotoBrick[];
+  photos : any;
+  checkLength : number = 0;
   subscription : Subscription;
+  loading = false;
+  showImage :any;
   constructor(private photoService : PhotoService,
                 private router: Router,
-                private route: ActivatedRoute) { }
+                private route: ActivatedRoute,
+                private dataService : DataService) { }
 
   ngOnInit() {
     this.subscription = this.photoService.photoListChanged
     .subscribe((photos:PhotoBrick[])=>{
-      console.log(photos)
+        this.photos = photos;
+        this.checkLength = this.photos.length;
+        this.loading = true;
+        this.showImage = this.onLoading()
     })
-    this.photos =  this.photoService.getPhotos();
-  }
+      setTimeout(()=>{
+        this.dataService.getPhotos();
+        this.photos = this.photoService.getPhotos()
+        this.checkLength = this.photos.length;
+      },500)
+    }
   ngOnDestroy(){
     this.subscription.unsubscribe()
+  }
+  onLoading(){
+    if(this.loading === true){
+      if(this.checkLength == 0){
+        return true;
+      }else{
+        return false;
+      }
+    }
   }
 }

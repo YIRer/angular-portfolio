@@ -27,32 +27,6 @@
       </div>
       </div>
       <hr>
-      <div class="row"
-      *ngIf="photo.comment !== null">
-        <div class="col-xs-12">
-          <div
-            class="row"
-            *ngFor="let comment of photo.comment; let i = index"
-            >
-            <div class="col-xs-2">
-                {{comment.auth}}
-            </div>
-            <div class="col-xs-10">
-                {{comment.comment}}
-            </div>
-            <div class="col-xs-8 text-left">
-                <small>
-                  {{comment.date | date:'yy.MM.dd'}}
-                </small>
-            </div>
-            <div class="col-xs-4 text-right">
-              <button class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-cog"></i></button>
-              <button class="btn btn-danger btn-xs" (click)="deleteComment(i)"><i class="glyphicon glyphicon-trash"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr>
       <app-photo-comment
         [photo]="photo"
       ></app-photo-comment>

@@ -22,5 +22,8 @@ export class MainComponent implements OnInit {
   ngOnInit() {
 
   }
+  openSite(){
+     window.open('http://pf.i-make.kr:8080/caffebene/html/main/main.jsp', '_blank');
+  }
 
 }

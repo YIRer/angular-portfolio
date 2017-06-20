@@ -14,8 +14,8 @@
 .draw::before{
   width: 0;
   height: 0;
-  border-top: 2px transparent solid;
-  border-right: 2px transparent solid;
+  border-top: 3px transparent solid;
+  border-right: 3px transparent solid;
   position: absolute;
   top: 0;
   left: 0;
@@ -24,13 +24,14 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   transition: border-color 0s ease-out 1s, width 0.25s ease-out 0.75s, height 0.25s ease-out 0.5s;
+  z-index: -1;
 
 }
 .draw::after{
   width: 0;
   height: 0;
-  border-bottom: 2px transparent solid;
-  border-left: transparent solid;
+  border-bottom: 3px transparent solid;
+  border-left: 3px transparent solid;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -39,6 +40,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.25s, height 0.25s ease-out;
+  z-index: -1;
 }
 .draw:hover::before {
   width: 100%;

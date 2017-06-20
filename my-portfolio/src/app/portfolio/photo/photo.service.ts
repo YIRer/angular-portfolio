@@ -9,52 +9,64 @@ import { PhotoBrick } from './photo.model';
 export class PhotoService{
   photoListChanged = new Subject<PhotoBrick[]>();
   private photos : PhotoBrick[] = [
-    new PhotoBrick(
-          'A test recipe',
-          'This is simply a test',
-          'Yellow Man',
-          "https://farm3.staticflickr.com/2703/4211984650_a0d58d5496.jpg",
-          new Date(),
-          '1',
-          []
-        ),
-        new PhotoBrick(
-          'asd',
-          'qwer',
-          'zxcv',
-          "https://farm6.staticflickr.com/5055/5398254250_0a691d9804.jpg",
-          new Date(),
-          '2',
-          [
-            new PhotoComment('qwer','asdsa', new Date())
-          ]
-        ),
-        new PhotoBrick(
-          'asd',
-          'qwer',
-          'zxcv',
-          "https://farm1.staticflickr.com/139/357015070_0f007ee28f.jpg",
-          new Date(),
-          '3',
-          []
-        ),
-        new PhotoBrick(
-              'A test recipe',
-              'This is simply a test',
-              'Yellow Man',
-              "https://farm8.staticflickr.com/7596/17094319752_7de98d3e50.jpg",
-              new Date(),
-              '4',
-              []
-            )
+    // new PhotoBrick(
+    //       'A test recipe',
+    //       'This is simply a test',
+    //       'Yellow Man',
+    //       "https://farm3.staticflickr.com/2703/4211984650_a0d58d5496.jpg",
+    //       new Date(),
+    //       '1',
+    //       []
+    //     ),
+    //     new PhotoBrick(
+    //       'asd',
+    //       'qwer',
+    //       'zxcv',
+    //       "https://farm6.staticflickr.com/5055/5398254250_0a691d9804.jpg",
+    //       new Date(),
+    //       '2',
+    //       [
+    //         new PhotoComment('qwer','asdsa', new Date())
+    //       ]
+    //     ),
+    //     new PhotoBrick(
+    //       'asd',
+    //       'qwer',
+    //       'zxcv',
+    //       "https://farm1.staticflickr.com/139/357015070_0f007ee28f.jpg",
+    //       new Date(),
+    //       '3',
+    //       []
+    //     ),
+    //     new PhotoBrick(
+    //           'A test recipe',
+    //           'This is simply a test',
+    //           'Yellow Man',
+    //           "https://farm8.staticflickr.com/7596/17094319752_7de98d3e50.jpg",
+    //           new Date(),
+    //           '4',
+    //           []
+    //         )
   ];
   public PhotosIds = this.photos.length;
+
+  setPhotos(photos:PhotoBrick[]){
+    this.photos = photos;
+    // console.log('set**************')
+    // console.log(this.photos)
+    this.photoListChanged.next(this.photos.slice());
+  }
   getPhotos(){
-    console.log(this.photos)
+    // console.log('get**************')
+    // console.log(this.photos)
     return this.photos.slice();
   }
   addBrick(photo:PhotoBrick){
-    this.photos.unshift(photo);
+    if(this.photos.length > 0){
+      this.photos.unshift(photo);
+    }else{
+      this.photos.push(photo);
+    }
     this.PhotosIds++;
     this.photoListChanged.next(this.photos.slice());
   }

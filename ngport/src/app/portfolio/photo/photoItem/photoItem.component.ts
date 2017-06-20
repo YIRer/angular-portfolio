@@ -7,7 +7,7 @@ import { PhotoBrick } from '../photo.model';
   styleUrls: ['./photoItem.component.css']
 })
 export class PhotoItemComponent implements OnInit {
-  @Input() photo:PhotoBrick;
+  @Input() photo:any;
   @Input() index:number;
   @Input() photoId:any;
 

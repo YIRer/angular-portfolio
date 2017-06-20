@@ -4,21 +4,57 @@ import { PhotoBrick } from '../photo.model';
 import { PhotoService } from '../photo.service'
 import { PhotoComment } from '../../../shared/photocomment.model'
 import { Subject } from "rxjs/Subject";
+import { Response } from '@angular/http';
+import { DataService } from '../../../shared/data.service';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+  keyframes,
+  group
+} from '@angular/animations';
 
 declare var $;
 
 @Component({
   selector: 'app-photo-comment',
   templateUrl: './photoComment.component.html',
-  styleUrls: ['./photoComment.component.css']
+  styleUrls: ['./photoComment.component.css'],
+  animations: [
+    trigger('list1', [
+      state('in', style({
+        opacity: 1,
+        transform: 'translateX(0)'
+      })),
+      transition('void => *', [
+        style({
+          opacity: 0,
+          transform: 'translateX(-100px)'
+        }),
+        animate(300)
+      ]),
+      transition('* => void', [
+        animate(300, style({
+          transform: 'translateX(100px)',
+          opacity: 0
+        }))
+      ])
+    ])
+  ]
 })
 export class PhotoCommentComponent implements OnInit {
   @Input() photo : PhotoBrick;
   commentForm:FormGroup;
+  // subscription : Subscription;
 
-  constructor(private photoService : PhotoService) { }
+  constructor(
+              private photoService : PhotoService,
+              private dataService : DataService) {}
 
   ngOnInit() {
+    console.log(this.photo);
     this.cForm();
   }
 
@@ -39,6 +75,8 @@ export class PhotoCommentComponent implements OnInit {
     )
     this.photo.comment.push(pushValue);
     this.photoService.onUpdate(this.photo.id, this.photo);
+    this.photoService.getPhotos()
+    this.dataService.updata();
     this.commentForm.reset();
   }
   onClear(){
@@ -54,7 +92,8 @@ export class PhotoCommentComponent implements OnInit {
     }
     this.photo.comment = dd;
     this.photoService.onUpdate(this.photo.id, this.photo);
-
+    this.photoService.getPhotos()
+    this.dataService.updata();
   }
   commnetCtrl(comment:any, index:number){
     let selecComment = $('.comment').eq(index);
@@ -63,12 +102,15 @@ export class PhotoCommentComponent implements OnInit {
 
     selecComment.toggleClass("hide");
     showTa.toggleClass("hide");
+    showTa.toggleClass("pulse");
 
     if(showTa.hasClass("hide")){
       if(changeValue.length >0){
         comment.comment = changeValue;
         this.photo.comment[index] = comment;
         this.photoService.onUpdate(this.photo.id, this.photo);
+        this.photoService.getPhotos()
+        this.dataService.updata();
       }
     }else{
       showTa[0].value = comment.comment;
@@ -78,4 +120,5 @@ export class PhotoCommentComponent implements OnInit {
       $(showTa).tooltip({trigger:"focus"});
     }
   }
+
 }

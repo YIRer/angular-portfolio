@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,13 +16,9 @@ import { ShortenPipe } from './shared/shorten.pipe';
 //modal
 
 import { MasonryModule } from 'angular2-masonry';
-// import { PhotoComponent } from './portfolio/photo/photo.component';
-// import { NewComponent } from './portfolio/photo/new/new.component';
-// import { EditComponent } from './portfolio/photo/edit/edit.component';
+//auth
 import { PhotoService } from './portfolio/photo/photo.service';
-// import { ItemComponent } from './portfolio/photo/item/item.component';
-// import { DetailComponent } from './portfolio/photo/detail/detail.component';
-
+import { DataService } from './shared/data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,9 +31,10 @@ import { PhotoService } from './portfolio/photo/photo.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MasonryModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [FnService,PhotoService],
+  providers: [FnService,PhotoService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

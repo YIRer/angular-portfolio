@@ -17,20 +17,41 @@
       <div #fadeShow class="hide">
         <h1>Hello</h1>
         <div class="row">
-          <div class="col-md-5">
-            <div class="draw">
-
+          <div class="col-xs-6 col-xs-offset-3">
+            <div
+              class="col-xs-12 draw text-center"
+              style="padding:5px 10px 10px; margin:10px 0; cursor:pointer;"
+              routerLink="/portfolio/photo">
                 <h3>
-                  <a routerLink="/portfolio/photo">앨범어플리케이션</a>
+                  앨범어플리케이션
                 </h3>
+                <hr>
+                <img class="img-responsive center-block" src="https://farm4.staticflickr.com/3129/2843049580_c7b6e8a427.jpg" alt="">
+              </div>
+              <hr>
+            <div
+              class="col-xs-12 draw text-center"
+              style="padding:5px 10px 10px; margin:10px 0; cursor:pointer;"
+              (click)="openSite()"
+              >
+                <h3>
+                  카페베네 카피 사이트
+                </h3>
+                <hr>
+                <img class="img-responsive center-block" src="https://farm4.staticflickr.com/3129/2843049580_c7b6e8a427.jpg" alt="">
+              </div>
+              <hr>
+              <div class="row">
+                  <button class="btn btn-info btn-lg" type="button">
+                    <i class="glyphicon glyphicon-user"></i>
+                    프로필
+                  </button>
+                  <button class="btn btn-default btn-lg" type="button">
+                    <i class="glyphicon glyphicon-earphone"></i>
+                    연락처
+                  </button>
+              </div>
             </div>
-          </div>
-          <div class="col-md-1"></div>
-          <div class="col-md-5">
-            <div class="draw">
-              <h3>게시판</h3>
-            </div>
-          </div>
         </div>
       </div>
     </div>
