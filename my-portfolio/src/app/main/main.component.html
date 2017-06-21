@@ -1,59 +1,52 @@
-<div class="container margineTop">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <div #slide class="animated fadeInUp">
-        <h1>환영합니다!</h1>
-        <h3>이곳은 웹퍼블리셔 -
+<div class="container margineTop"
+  style="margin:0; padding:0;">
+  <div
+    class="row"
+    style="height:100%;display:table; width:100%; margin:0; padding:0;"
+    *ngIf="isClassVisible === false;else showClass">
+    <div
+      class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4 text-center"
+      style="display:table-cell; color:#101010; vertical-align:middle; float:none;"
+      >
+      <div
+        #slide
+        class="animated fadeInUp"
+        style="background:rgba(255, 255, 255, 0.65); border-radius:15px; padding:10px 0;
+        box-shadow: 2px 2px 5px #c3c3c3, -2px -2px 5px #c3c3c3;">
+        <h2>환영합니다!</h2>
+        <h4>이곳은 웹퍼블리셔 -
           <span class="lineChange">프론트앤드 개발자를 꿈꾸는</span>
-        </h3>
-        <h3>
+        </h4>
+        <h4>
           yirer의
           <span class="lineChange">
             포트폴리오 사이트입니다!
           </span>
-        </h3>
+        </h4>
         <button class="btn btn-primary btn-lg margineTop" (click)="classChanged()">들어가기</button>
       </div>
-      <div #fadeShow class="hide">
-        <h1>Hello</h1>
-        <div class="row">
-          <div class="col-xs-6 col-xs-offset-3">
-            <div
-              class="col-xs-12 draw text-center"
-              style="padding:5px 10px 10px; margin:10px 0; cursor:pointer;"
-              routerLink="/portfolio/photo">
-                <h3>
-                  앨범어플리케이션
-                </h3>
-                <hr>
-                <img class="img-responsive center-block" src="https://farm4.staticflickr.com/3129/2843049580_c7b6e8a427.jpg" alt="">
-              </div>
-              <hr>
-            <div
-              class="col-xs-12 draw text-center"
-              style="padding:5px 10px 10px; margin:10px 0; cursor:pointer;"
-              (click)="openSite()"
-              >
-                <h3>
-                  카페베네 카피 사이트
-                </h3>
-                <hr>
-                <img class="img-responsive center-block" src="https://farm4.staticflickr.com/3129/2843049580_c7b6e8a427.jpg" alt="">
-              </div>
-              <hr>
-              <div class="row">
-                  <button class="btn btn-info btn-lg" type="button">
-                    <i class="glyphicon glyphicon-user"></i>
-                    프로필
-                  </button>
-                  <button class="btn btn-default btn-lg" type="button">
-                    <i class="glyphicon glyphicon-earphone"></i>
-                    연락처
-                  </button>
-              </div>
-            </div>
-        </div>
-      </div>
     </div>
+  <div
+    #fadeOut
+    class="video"
+    style="
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    z-index:-1;
+    background:url('https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg');
+    background-size:cover;
+    filter:grayscale(0.1);
+    opacity:0.1;
+    background-position:center;
+
+    ">
+
+  </div>
   </div>
 </div>
+<ng-template #showClass>
+  <app-start></app-start>
+</ng-template>

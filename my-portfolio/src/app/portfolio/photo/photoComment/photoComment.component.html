@@ -1,72 +1,79 @@
 <div class="row"
-*ngIf="photo.comment !== null;">
-  <div
-    class="col-xs-12"
-    *ngIf="photo.comment.length > 0; else asdf">
+      *ngIf="photo.comment !== null;">
     <div
-      class="row"
-      *ngFor="let comment of photo.comment; let i = index"
-      [@list1]="state">
-      <div class="col-xs-2">
-          {{comment.auth}}
-      </div>
+      class="col-xs-12"
+      *ngIf="photo.comment.length > 0; else asdf">
       <div
-        class="col-xs-10"
-        >
+        class="row"
+        *ngFor="let comment of photo.comment; let i = index"
+        [@list1]="state">
+        <div class="col-xs-12 col-sm-2">
+
           <span class="comment">
-            {{comment.comment}}
+          {{comment.auth}}
           </span>
-        <textarea
-          name="editComment"
-          id=""
-          class="form-control editComment animated hide"
-          cols="30"
-          rows="2"
-          data-toggle="tooltip"
-          data-placement="top"
-          title="수정 후 다시 버튼을 눌러주세요."
+
+        </div>
+        <div
+          class="col-xs-10 col-sm-10"
+          >
+            <span class="comment">
+              {{comment.comment}}
+            </span>
+          <textarea
+            name="editComment"
+            id="editComment"
+            class="form-control editComment animated hide"
+            cols="70"
+            rows="2"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="수정 후 다시 버튼을 눌러주세요."
+            maxlength="40"
+            value="{{comment.comment}}"
+            ></textarea>
+        </div>
+        <div class="col-xs-4 col-sm-8 text-left">
+            <small>
+              {{comment.date | date:'yy.MM.dd'}}
+            </small>
+        </div>
+        <div
+         class="col-xs-8 col-sm-4 text-right commentCtrl" style="margin-top:5px;">
+          <button class="btn btn-warning btn-xs" (click)="commnetCtrl(comment, i)"><i class="glyphicon glyphicon-cog"></i></button>
+          <button class="btn btn-danger btn-xs" (click)="deleteComment(i)"><i class="glyphicon glyphicon-trash"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #asdf>
+    <h4 class="text-center">코멘트가 없습니다.</h4>
+  </ng-template>
+  <hr>
+  <div class="row"
+        style="margin-bottom:30px;">
+    <form [formGroup]="commentForm">
+      <div class="form-group col-xs-12 col-sm-2">
+        <input
+          type="text"
+          class="form-control"
+          maxlength="10"
+          id="commentAuth"
+          placeholder="auth"
+          formControlName="auth">
+      </div>
+      <div class="form-group col-xs-12 col-sm-8">
+        <input
+          type="text"
+          class="form-control"
           maxlength="70"
-          value="{{comment.comment}}"
-          ></textarea>
+          id="comment"
+          placeholder="comment"
+          formControlName="comment">
       </div>
-      <div class="col-xs-8 text-left">
-          <small>
-            {{comment.date | date:'yy.MM.dd'}}
-          </small>
-      </div>
-      <div
-       class="col-xs-4 text-right commentCtrl" style="margin-top:5px;">
-        <button class="btn btn-warning btn-xs" (click)="commnetCtrl(comment, i)"><i class="glyphicon glyphicon-cog"></i></button>
-        <button class="btn btn-danger btn-xs" (click)="deleteComment(i)"><i class="glyphicon glyphicon-trash"></i></button>
-      </div>
+    </form>
+    <div class="col-xs-12 col-sm-2 text-right commentbtn">
+      <button class="btn btn-success btn-xs" (click)="onAddComment()"><i class="glyphicon glyphicon-ok"></i></button>
+      <button class="btn btn-danger btn-xs" (click)="onClear()"><i class="glyphicon glyphicon-remove"></i></button>
     </div>
   </div>
-</div>
-<ng-template #asdf>
-  <h3>코멘트가 없습니다.</h3>
-</ng-template>
-<hr>
-<div class="row">
-  <form [formGroup]="commentForm">
-    <div class="form-group col-xs-2">
-      <input
-        type="text"
-        class="form-control"
-        id="commentAuth"
-        placeholder="auth"
-        formControlName="auth">
-    </div>
-    <div class="form-group col-xs-8">
-      <input
-        type="text"
-        class="form-control"
-        id="comment"
-        placeholder="comment"
-        formControlName="comment">
-    </div>
-  </form>
-  <div class="col-xs-2 text-right commentbtn">
-    <button class="btn btn-success btn-xs" (click)="onAddComment()"><i class="glyphicon glyphicon-ok"></i></button>
-    <button class="btn btn-danger btn-xs" (click)="onClear()"><i class="glyphicon glyphicon-remove"></i></button>
-  </div>
-</div>

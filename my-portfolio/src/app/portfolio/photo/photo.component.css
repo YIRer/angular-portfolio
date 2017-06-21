@@ -1,3 +1,7 @@
+.margineBox{
+  margin: 60px auto 70px;
+}
+
 h1{
   font-family: Satisfy;
   font-size:50px;
@@ -67,8 +71,8 @@ h1{
   position: fixed;
   text-align: center;
   color: white;
-  right: 2em;
-  top: 45em;
+  right: 5vh;
+  top: 85vh;
   line-height: 4em;
   z-index: 10;
 }
@@ -84,12 +88,12 @@ h1{
   text-decoration: none;
 }
 
-@media screen and (max-width:750px) and (max-width:420px){
+/*@media screen and (max-width:750px) and (max-width:420px){
 
   .addNew{
     top:30em;
   }
-}
+}*/
 
 .vcenter {
     display: inline-block;

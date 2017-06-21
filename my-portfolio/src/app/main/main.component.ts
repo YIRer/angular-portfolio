@@ -6,24 +6,23 @@ import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  // isClassVisible = false;
+isClassVisible = false;
   @ViewChild('slide') slide:ElementRef
-  @ViewChild('fadeShow') fadeShow:ElementRef
+  @ViewChild('fadeOut') fadeOut:ElementRef
   constructor() { }
 
   classChanged(name:string){
-    this.slide.nativeElement.className = 'animated slideOutLeft';
+    this.slide.nativeElement.className = 'animated bounceOutDown';
     setTimeout(()=>{
-      this.slide.nativeElement.className = "hide";
-      this.fadeShow.nativeElement.className = "animated fadeInUp";
-    },500)
+      this.fadeOut.nativeElement.className = 'animated fadeOut';
+    },700)
+    setTimeout(()=>{
+      this.isClassVisible = true;
+    },1000)
   }
 
   ngOnInit() {
-
-  }
-  openSite(){
-     window.open('http://pf.i-make.kr:8080/caffebene/html/main/main.jsp', '_blank');
+    this.isClassVisible = false;
   }
 
 }

@@ -52,6 +52,7 @@ export class PhotoService{
 
   setPhotos(photos:PhotoBrick[]){
     this.photos = photos;
+    this.PhotosIds = this.photos.length;
     // console.log('set**************')
     // console.log(this.photos)
     this.photoListChanged.next(this.photos.slice());
@@ -59,6 +60,7 @@ export class PhotoService{
   getPhotos(){
     // console.log('get**************')
     // console.log(this.photos)
+    this.PhotosIds = this.photos.length;
     return this.photos.slice();
   }
   addBrick(photo:PhotoBrick){

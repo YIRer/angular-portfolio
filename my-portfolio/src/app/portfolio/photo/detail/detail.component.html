@@ -1,45 +1,50 @@
-<div class="container" *ngIf="photo !== undefined;else goback">
+<div class="container">
   <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
+    <div class="container margineBox" *ngIf="photo !== undefined;else goback">
       <div class="row">
-      <img class="img-responsive center-block" src="{{photo.imgsrc}}" alt="">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="row">
+          <img class="img-responsive center-block" src="{{photo.imgsrc}}" alt="">
 
-      <div class="col-md-12 text-center">
-        <h1>{{photo.name}}</h1>
-        <p class="text-center">
-          <i>-{{photo.auth}}</i>
-          <br>
-          <small>
-            {{ photo.date | date: 'yy. MM. dd' }}
-          </small>
-          <br>
-        </p>
-        <div class="well text-left">
-          {{photo.description}}
+          <div class="col-md-12 text-center">
+            <h1>{{photo.name}}</h1>
+            <p class="text-center">
+              <i>-{{photo.auth}}</i>
+              <br>
+              <small>
+                {{ photo.date | date: 'yy. MM. dd' }}
+              </small>
+              <br>
+            </p>
+            <div class="well text-left">
+              {{photo.description}}
+            </div>
+          </div>
+          <hr>
+          <div class="col-md-12 text-right">
+            <button class="btn btn-default" (click)="onCancle()">돌아가기</button>
+            <button class="btn btn-warning" (click)="onEditPhoto()">수정</button>
+            <button class="btn btn-danger" (click)="onDelete()">삭제</button>
+          </div>
+          </div>
+          <hr>
+          <app-photo-comment
+            [photo]="photo"
+          ></app-photo-comment>
         </div>
+        <div class="col-md-1"></div>
       </div>
-      <hr>
-      <div class="col-md-12 text-right">
-        <button class="btn btn-default" (click)="onCancle()">돌아가기</button>
-        <button class="btn btn-warning" (click)="onEditPhoto()">수정</button>
-        <button class="btn btn-danger" (click)="onDelete()">삭제</button>
-      </div>
-      </div>
-      <hr>
-      <app-photo-comment
-        [photo]="photo"
-      ></app-photo-comment>
     </div>
-    <div class="col-md-1"></div>
+    <ng-template  #goback>
+      <div class="container margineBox text-center">
+        <h1>이런! 잘 못 된 경로입니다!</h1>
+          <br>
+        <h4>상위 페이지로 넘어갑니다.</h4>
+        <br>
+        <button class="btn btn-default" (click)="onCancle()">돌아가기</button>
+      </div>
+    </ng-template >
+
   </div>
 </div>
-<ng-template  #goback>
-  <div class="container text-center">
-    <h1>이런! 잘 못 된 경로입니다!</h1>
-      <br>
-    <h4>상위 페이지로 넘어갑니다.</h4>
-    <br>
-    <button class="btn btn-default" (click)="onCancle()">돌아가기</button>
-  </div>
-</ng-template >

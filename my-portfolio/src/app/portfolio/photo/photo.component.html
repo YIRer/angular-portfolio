@@ -1,42 +1,50 @@
-  <h1>Responsive Image Gallery</h1>
-  <hr>
-  <div class="addNew">
-    <a routerLink="new">
-      <i class="glyphicon glyphicon-plus"></i>
-    </a>
-  </div>
-  <div class="row"
-  *ngIf="loading == false;"
-  >
-    <div class="col-md-6 col-md-offset-3 text-center vcenter">
-      <h3 class="animated flipInX infinite">Now Loading....</h3>
-    </div>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="container margineBox">
+      <h1>반응형 이미지 갤러리</h1>
+      <hr>
+      <div class="addNew">
+        <a routerLink="new">
+          <i class="glyphicon glyphicon-plus"></i>
+        </a>
+      </div>
+      <div class="row"
+      *ngIf="loading == false;"
+      >
+        <div class="col-md-6 col-md-offset-3 text-center vcenter">
+          <h3 class="animated flipInX infinite">Now Loading....</h3>
+        </div>
+      </div>
 
-  <div class="container"
-  *ngIf="showImage == true; else showImgages"
-  >
-    <div class="row">
-       <div class="col-md-6 col-md-offset-3 text-center vcenter">
-         <h2>
-           이미지를 추가해 주세요!
-         </h2>
-       </div>
-    </div>
-  </div>
+      <div class="container"
+      *ngIf="showImage == true; else showImgages"
+      >
+        <div class="row">
+           <div class="col-md-6 col-md-offset-3 text-center vcenter">
+             <h2>
+               이미지를 추가해 주세요!
+             </h2>
+           </div>
+        </div>
+      </div>
 
-  <ng-template
-  #showImgages
-  >
-  <div id="gallery"
-  class="container-fluid"
-  >
-  <app-photoItem
-  *ngFor="let brick of photos;let i = index;"
-  [index]="i"
-  [photoId]="photos[i].id"
-  [photo]="brick">
-  </app-photoItem>
+      <ng-template
+      #showImgages
+      >
+      <div id="gallery"
+      class="container-fluid"
+      >
+      <app-photoItem
+      *ngFor="let brick of photos;let i = index;"
+      [index]="i"
+      [photoId]="photos[i].id"
+      [photo]="brick">
+      </app-photoItem>
+    </div>
+
+      </ng-template>
+
+    </div>
+
+  </div>
 </div>
-
-  </ng-template>
