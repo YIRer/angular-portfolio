@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
     firebase.initializeApp({
       apiKey: "AIzaSyCI32dk2d_peMBf2tUDaniKe7p0w1qeHPo",
       authDomain: "portfolio-project-768d9.firebaseapp.com",
+      storageBucket: "portfolio-project-768d9.appspot.com"
     });
   }
 }

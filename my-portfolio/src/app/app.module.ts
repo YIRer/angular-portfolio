@@ -26,6 +26,7 @@ import { DataService } from './shared/data.service';
 import { DropdownDirective } from './shared/dropdownCtrl.directive';
 import { FooterComponent } from './footer/footer.component';
 import { StartComponent } from './main/start/start.component';
+import { ShowProfileComponent } from './main/profile/show-profile/show-profile.component';
 
 
 
@@ -38,7 +39,8 @@ import { StartComponent } from './main/start/start.component';
     ContactComponent,
     ShortenPipe,
     FooterComponent,
-    StartComponent
+    StartComponent,
+    ShowProfileComponent
   ],
   imports: [
     BrowserModule,

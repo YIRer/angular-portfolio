@@ -11,7 +11,7 @@
               나만의 앨범
             </h4>
             <hr>
-            <img class="img-responsive center-block" src="https://farm4.staticflickr.com/3129/2843049580_c7b6e8a427.jpg" alt="">
+            <img class="img-responsive center-block" [src]="album" alt="">
             <hr>
             <p>
               이미지업로드, 수정 및 삭제, 덧글기능이 구현된 페이지입니다. <br> <i> / Angular2, bootstrap, Firebase, jquery / </i>
@@ -27,7 +27,7 @@
               카페베네 카피 사이트
             </h4>
             <hr>
-            <img class="img-responsive center-block" src="https://farm4.staticflickr.com/3129/2843049580_c7b6e8a427.jpg" alt="">
+            <img class="img-responsive center-block" [src]="coffee" alt="">
             <hr>
             <p>
               카페베네 카피 페이지입니다. 이전에 있던 페이지와 똑같이 만들었습니다. <br> <i> / html, css, javascript, jquery / </i>
@@ -35,11 +35,17 @@
           </div>
           <hr>
           <div class="row">
-              <button class="btn btn-primary btn-lg" type="button">
+              <button
+                class="btn btn-primary btn-lg"
+                type="button"
+                routerLink="/profile">
                 <i class="glyphicon glyphicon-user"></i>
                 프로필
               </button>
-              <button class="btn btn-default btn-lg" type="button">
+              <button
+                class="btn btn-default btn-lg"
+                type="button"
+                routerLink="/contact">
                 <i class="glyphicon glyphicon-earphone"></i>
                 연락처
               </button>
