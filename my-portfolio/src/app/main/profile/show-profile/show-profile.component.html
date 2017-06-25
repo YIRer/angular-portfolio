@@ -1,5 +1,6 @@
 <div class="container paddingBox text-center hide"
-id="profileMain">
+id="profileMain"
+(scroll)="onWindowScroll($event)">
 <div class="row">
   <div class="hide" id="profileImg">
     <div
@@ -24,9 +25,13 @@ id="profileMain">
     <div class="row">
       <div
       class="col-md-3 col-sm-4 col-xs-6 text-center techImg"
-      *ngFor="let logo of data;">
+      *ngFor="let logo of data;"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="{{logo.tooltip}}">
         <div
-          class="thumbnail center-block">
+          class="thumbnail center-block"
+          >
           <img
             class="img-responsive center-block"
             src="{{logo.imgUrl}}"
@@ -65,7 +70,7 @@ id="profileMain">
       <br><br>
       활발한 성격은 아니지만, 저의 부족한 부분을 채워
       사람들과 소통을, 사용자에겐 콘텐츠를 전달하는
-      '웹 프론트 엔드'의 길을 걷고 싶습니다.
+      '웹 프론트 앤드'의 길을 걷고 싶습니다.
     </div>
   </div>
 </div>

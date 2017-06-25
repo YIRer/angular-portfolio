@@ -19,6 +19,9 @@ const appRoutes : Routes =[
   {
     path:'portfolio',
     loadChildren:'./portfolio/portfolio.module#PortfolioModule'
+  },{
+    path:'**',
+    redirectTo: ''
   }
 
 ]

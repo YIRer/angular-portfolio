@@ -54,7 +54,7 @@ export class PhotoCommentComponent implements OnInit {
               private dataService : DataService) {}
 
   ngOnInit() {
-    console.log(this.photo);
+    // console.log(this.photo);
     this.cForm();
   }
 

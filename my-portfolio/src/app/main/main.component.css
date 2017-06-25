@@ -1,5 +1,35 @@
 .container {
   height: 100%;
   width: 100%;
-  margin: 0;
+  margin:0;
+  padding:0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.container::-webkit-scrollbar {
+ display: none;
+}
+.mainRow{
+  height:100%;
+  display:table;
+  width:100%;
+  margin:0;
+  padding:0;
+}
+.centerBox{
+  display:table-cell;
+  color:#101010;
+  vertical-align:middle;
+  float:none;
+}
+.lineChange{
+  display: inline-block;
+}
+
+.slide{
+  background:rgba(255, 255, 255, 0.65);
+  border-radius:15px;
+  padding:10px 0;
+  -webkit-box-shadow: 2px 2px 0px #c3c3c3, -2px -2px 0px #c3c3c3;
+  box-shadow: 2px 2px 0px #c3c3c3, -2px -2px 0px #c3c3c3;
 }

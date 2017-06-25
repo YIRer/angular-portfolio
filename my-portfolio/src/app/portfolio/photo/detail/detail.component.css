@@ -1,3 +1,12 @@
-.margineBox{
-  margin: 60px auto 70px;
+.paddingBox{
+  padding-top: 60px;
+  padding-bottom:70px;
+}
+.container{
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.container::-webkit-scrollbar {
+ display: none;
 }

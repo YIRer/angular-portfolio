@@ -22,32 +22,30 @@ declare var $:any;
 export class ShowProfileComponent implements OnInit, OnDestroy{
   profile:string
   data:any;
-  // profileTrigger = false;
-  // viewCtrl=false;
   profileImg = new Subject<boolean>();
   techImgSum = 0;
   techImgLoaded = new Subject<boolean>();
   endLoading = new Subject;
-  a = false;
-  b = false;
+  oneStep = false;
+  twoStep = false;
 
-  // @ViewChild('introduce') introduce:ElementRef;
-  // @ViewChild('profile') profileImg:ElementRef;
   ngOnInit() {
+    // 로딩 체크
     this.profileImg.subscribe((value:boolean)=>{
       if(value === true){
-        this.a = true;
+        this.oneStep = true;
         this.endLoading.next();
       }
     });
     this.techImgLoaded.subscribe((value:boolean)=>{
       if(value === true){
-        this.b = true;
+        this.twoStep = true;
         this.endLoading.next();
       }
     });
+    // 로딩완료시 에니메이션 표시
     this.endLoading.subscribe(()=>{
-      if(this.a === true && this.b ===true){
+      if(this.oneStep === true && this.twoStep ===true){
         $('#loading').addClass("hide");
         $("#profileMain").removeClass("hide");
         $("#introduce").removeClass("hide");
@@ -59,10 +57,27 @@ export class ShowProfileComponent implements OnInit, OnDestroy{
     })
   }
 
+  // 로딩 완료 시 체크
+  profileLoad(){
+    $('#profileImg').removeClass("hide");
+    this.profileImg.next(true);
+  }
+  techLoad(){
+    this.techImgSum++;
+    if(this.techImgSum === this.data.length){
+      $('#tech').removeClass("hide");
+      for(let i = 0 ; i < this.techImgSum; i++){
+        $('.techImg').eq(i).tooltip({trigger:'hover'});
+      }
+      this.techImgLoaded.next(true);
+    }
+
+  }
   constructor(
       @Inject(DOCUMENT)
       private document: Document,
       private http : Http) {
+        // 데이터 로드 및 도큐맨트 옵션사용
     this.http.get('https://portfolio-project-768d9.firebaseio.com/logo.json')
     .subscribe(data => this.data = data.json(),
                 err => console.log(err),
@@ -75,12 +90,12 @@ export class ShowProfileComponent implements OnInit, OnDestroy{
                   }
                 });
   }
-  @HostListener("window:scroll", [])
-  onWindowScroll() {
-     let number = this.document.body.scrollTop;
-     let introduce = $('#introduce').offset().top - $('#introduce').outerHeight(true);
-    //  console.log(number);
-
+  // 스크롤 이벤트 체크
+  @HostListener("scroll", ['$event'])
+  // 스크롤시 발생할 이벤트
+  onWindowScroll($event) {
+     let number = $event.target.scrollTop;
+     let introduce = $('#introduce').offset().top;
      if(number > introduce){
        $('#introduce').removeClass('animated fadeOut');
        $('#introduce').addClass('animated fadeIn');
@@ -89,27 +104,10 @@ export class ShowProfileComponent implements OnInit, OnDestroy{
       $('#introduce').addClass('animated fadeOut');
      }
    }
-   profileLoad(){
-     console.log("sss");
-    //  this.profileTrigger = true;
-    $('#profileImg').removeClass("hide");
-     this.profileImg.next(true);
-   }
-   techLoad(){
-     this.techImgSum++;
-     if(this.techImgSum === this.data.length){
-       $('#tech').removeClass("hide");
-       this.techImgLoaded.next(true);
-     }
-
-   }
-  //  ngAfterViewChecked(){
-  //    if(this.profileTrigger === true){
-  //      let profileImg = this.profileImg;
-  //      profileImg.nativeElement.className = "animated fadeIn"
-  //    }
-  //  }
+  //  메모리 누수 방지
   ngOnDestroy(){
     this.profileImg.unsubscribe();
+    this.techImgLoaded.unsubscribe();
+    this.endLoading.unsubscribe()
   }
 }

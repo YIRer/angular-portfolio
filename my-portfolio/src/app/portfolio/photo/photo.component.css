@@ -1,9 +1,4 @@
-.margineBox{
-  margin: 60px auto 70px;
-}
-
 h1{
-  font-family: Satisfy;
   font-size:50px;
   text-align:center;
   color:black;
@@ -18,35 +13,7 @@ h1{
   -moz-column-gap:20px;
   column-gap:20px;
 }
-@media (max-width:1200px){
-  #gallery{
-  -webkit-column-count:3;
-  -moz-column-count:3;
-  column-count:3;
 
-  -webkit-column-gap:20px;
-  -moz-column-gap:20px;
-  column-gap:20px;
-}
-}
-@media (max-width:800px){
-  #gallery{
-  -webkit-column-count:2;
-  -moz-column-count:2;
-  column-count:2;
-
-  -webkit-column-gap:20px;
-  -moz-column-gap:20px;
-  column-gap:20px;
-}
-}
-@media (max-width:600px){
-  #gallery{
-  -webkit-column-count:1;
-  -moz-column-count:1;
-  column-count:1;
-}
-}
 .card{
   width:100%;
   height:auto;
@@ -72,7 +39,7 @@ h1{
   text-align: center;
   color: white;
   right: 5vh;
-  top: 85vh;
+  top: 75vh;
   line-height: 4em;
   z-index: 10;
 }
@@ -88,15 +55,71 @@ h1{
   text-decoration: none;
 }
 
-/*@media screen and (max-width:750px) and (max-width:420px){
+.vcenter {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.paddingBox{
+  padding-top: 60px;
+  padding-bottom:70px;
+}
+.container{
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.container::-webkit-scrollbar {
+ display: none;
+}
+
+@media (min-width:1560px){
 
   .addNew{
-    top:30em;
+    right: 25vw;
   }
-}*/
 
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+}
+
+@media (max-width:2000px){
+
+  .addNew{
+    right: 15vw;
+  }
+
+}
+
+@media (max-width:1200px){
+  #gallery{
+    -webkit-column-count:3;
+    -moz-column-count:3;
+    column-count:3;
+
+    -webkit-column-gap:20px;
+    -moz-column-gap:20px;
+    column-gap:20px;
+  }
+
+}
+@media (max-width:800px){
+  #gallery{
+    -webkit-column-count:2;
+    -moz-column-count:2;
+    column-count:2;
+
+    -webkit-column-gap:20px;
+    -moz-column-gap:20px;
+    column-gap:20px;
+  }
+}
+@media (max-width:600px){
+  #gallery{
+    -webkit-column-count:1;
+    -moz-column-count:1;
+    column-count:1;
+  }
+  .addNew{
+    right: 5vh;
+  }
 }

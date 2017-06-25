@@ -1,7 +1,67 @@
-<div class="container paddingBox text-center">
-
-  <div class="row">
-    <img src="" alt="" class="img-circle">
+<div
+  class="paddingBox vcenter">
+  <div class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <h1>
+            연락처
+          </h1>
+          <hr>
+          <div class="col-xs-12">
+            <i class="flaticon-opened-email-envelope"></i>
+            <p>
+              <strong>
+                이메일 주소
+              </strong>
+            </p>
+            <address
+              class="mail"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="클릭 시 복사"
+              (click)="clickText($event.target.innerText)">
+                xeroonelove@gmail.com
+            </address>
+          </div>
+          <div class="col-xs-12">
+            <i class="flaticon-line-logo"></i>
+            <p>
+              <strong>
+                메신저
+              </strong>
+              <small>
+                (카카오포함)
+              </small>
+            </p>
+            <address
+            class="messenger"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="클릭 시 복사"
+            (click)="clickText($event.target.innerText)">
+                zeroonelove@naver.com
+            </address>
+          </div>
+          <div class="col-xs-12">
+            <i class="flaticon-smartphone"></i>
+            <p>
+              <strong>
+                전화번호
+              </strong>
+            </p>
+            <address
+            class="tel"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="클릭 시 복사"
+            (click)="clickText($event.target.innerText)">
+                01097300922
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
+  <input type="text" id="clip_target" value="">
 </div>

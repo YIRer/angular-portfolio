@@ -1,3 +1,11 @@
-<p>
-  profile works!
-</p>
+<app-show-profile
+  *ngIf="viewCtrl === true;else showLoading"
+></app-show-profile>
+
+<ng-template #showLoading>
+  <div class="paddingBox vcenter">
+    <div class="text-center">
+      <h3 class="animated flipInX infinite">Now Loading....</h3>
+    </div>
+  </div>
+</ng-template>

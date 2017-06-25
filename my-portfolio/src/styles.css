@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 html, body{
   height: 100%;
+}
+body {
+    overflow-y:hidden;
+    font-family: 'Noto Sans KR', sans-serif;
 }

@@ -6,16 +6,8 @@ import { Component, OnInit,HostListener,Inject,ElementRef,ViewChild} from '@angu
 })
 
 export class ProfileComponent implements OnInit {
-  profile:string
-  data:any;
-  viewCtrl=false;
-  @ViewChild('introduce') introduce:ElementRef;
-  ngOnInit() {
-    console.log("2");
-    setTimeout(()=>{
-      this.viewCtrl = true;
-    },1000);
 
+  ngOnInit() {
   }
 constructor() {}
 

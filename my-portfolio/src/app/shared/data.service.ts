@@ -15,6 +15,7 @@ export class DataService{
                           , this.photoService.getPhotos());
   }
   getPhotos(){
+    setTimeout(()=>{
     this.http.get('https://portfolio-project-768d9.firebaseio.com/photos.json')
             .map(
               (response:Response)=>{
@@ -38,17 +39,15 @@ export class DataService{
                     aa.push(ss);
                   }
                 }
-                // console.log("aa*********************");
-                // console.log(aa);
+
                 return aa;
               }
             )
           .subscribe((photos:PhotoBrick[])=>{
-              // setTimeout(()=>{
                 this.photoService.setPhotos(photos);
-              // },100)
 
           });
+        },1000)
   }
   updata(){
     this.storagePhotos()

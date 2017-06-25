@@ -36,17 +36,18 @@
     right:0;
     left:0;
     z-index:-1;
-    background:url('https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg');
-    background-size:cover;
-    filter:grayscale(0.1);
-    opacity:0.1;
-    background-position:center;
 
     ">
-
+      <video [src]="videoSrc" height="95%" autoplay loop></video>
   </div>
   </div>
 </div>
 <ng-template #showClass>
   <app-start></app-start>
 </ng-template>
+<!--
+background:url('https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_960_720.jpg');
+background-size:cover;
+filter:grayscale(0.1);
+opacity:0.1;
+background-position:center; -->

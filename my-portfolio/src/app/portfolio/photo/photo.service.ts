@@ -7,6 +7,7 @@ import { PhotoBrick } from './photo.model';
 
 @Injectable()
 export class PhotoService{
+  itemLoaded =  new Subject<boolean>();
   photoListChanged = new Subject<PhotoBrick[]>();
   private photos : PhotoBrick[] = [
     // new PhotoBrick(
@@ -53,15 +54,13 @@ export class PhotoService{
   setPhotos(photos:PhotoBrick[]){
     this.photos = photos;
     this.PhotosIds = this.photos.length;
-    // console.log('set**************')
-    // console.log(this.photos)
-    this.photoListChanged.next(this.photos.slice());
+    console.log(this.photos)
+    this.photoListChanged.next(this.photos);
   }
+
   getPhotos(){
-    // console.log('get**************')
-    // console.log(this.photos)
     this.PhotosIds = this.photos.length;
-    return this.photos.slice();
+    return this.photos;
   }
   addBrick(photo:PhotoBrick){
     if(this.photos.length > 0){
