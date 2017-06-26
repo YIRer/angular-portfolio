@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DropdownDirective } from '../shared/dropdown-directive.directive';
 
 @Component({
   selector: 'app-header',

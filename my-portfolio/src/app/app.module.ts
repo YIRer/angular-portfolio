@@ -10,6 +10,9 @@ import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './main/profile/profile.component';
 import { ContactComponent } from './main/contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
+import { StartComponent } from './main/start/start.component';
+import { ShowProfileComponent } from './main/profile/show-profile/show-profile.component';
 //routing
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,13 +25,7 @@ import { MasonryModule } from 'angular2-masonry';
 //service
 import { PhotoService } from './portfolio/photo/photo.service';
 import { DataService } from './shared/data.service';
-//directive
-import { DropdownDirective } from './shared/dropdownCtrl.directive';
-import { FooterComponent } from './footer/footer.component';
-import { StartComponent } from './main/start/start.component';
-import { ShowProfileComponent } from './main/profile/show-profile/show-profile.component';
-
-
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -48,9 +45,10 @@ import { ShowProfileComponent } from './main/profile/show-profile/show-profile.c
     BrowserAnimationsModule,
     MasonryModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    SharedModule
   ],
-  providers: [PhotoService,DataService,DropdownDirective],
+  providers: [PhotoService,DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

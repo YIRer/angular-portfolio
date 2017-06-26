@@ -2,12 +2,9 @@ import {
   Component,
   OnInit,
   HostListener,
-  Inject,
-  AfterViewChecked ,
   OnDestroy
 } from '@angular/core';
 import {Http} from '@angular/http';
-import { DOCUMENT } from '@angular/platform-browser';
 import * as firebase from 'firebase';
 import { Subject } from 'rxjs/Subject';
 
@@ -74,8 +71,6 @@ export class ShowProfileComponent implements OnInit, OnDestroy{
 
   }
   constructor(
-      @Inject(DOCUMENT)
-      private document: Document,
       private http : Http) {
         // 데이터 로드 및 도큐맨트 옵션사용
     this.http.get('https://portfolio-project-768d9.firebaseio.com/logo.json')

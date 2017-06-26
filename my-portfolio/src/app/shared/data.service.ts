@@ -52,7 +52,6 @@ export class DataService{
   updata(){
     this.storagePhotos()
     .subscribe((response:Response)=>{
-      // console.log(response);
     })
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { PhotoBrick } from '../photo.model';
 import { PhotoService } from '../photo.service'
-import { PhotoComment } from '../../../shared/photocomment.model'
+import { PhotoComment } from './photocomment.model'
 import { Subject } from "rxjs/Subject";
 import { Response } from '@angular/http';
 import { DataService } from '../../../shared/data.service';
@@ -47,14 +47,12 @@ declare var $;
 export class PhotoCommentComponent implements OnInit {
   @Input() photo : PhotoBrick;
   commentForm:FormGroup;
-  // subscription : Subscription;
 
   constructor(
               private photoService : PhotoService,
               private dataService : DataService) {}
 
   ngOnInit() {
-    // console.log(this.photo);
     this.cForm();
   }
 

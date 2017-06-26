@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { PortfolioComponent } from './portfolio.component';
 import { PortfolioRoutingModule } from './portfolio-routing.module';
-// import { AuthModule } from './auth/auth.module'
 @NgModule({
   declarations: [
     PortfolioComponent
@@ -13,7 +12,6 @@ import { PortfolioRoutingModule } from './portfolio-routing.module';
     CommonModule,
     ReactiveFormsModule,
     PortfolioRoutingModule,
-    // AuthModule
   ]
 })
 export class PortfolioModule {}

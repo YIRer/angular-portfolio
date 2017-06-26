@@ -26,7 +26,6 @@ export class DetailComponent implements OnInit {
         this.id = params['id']
         if(this.photoService.onCheckId(this.id)){
             this.photo = this.photoService.getPhoto(this.id);
-            console.log(this.photo.comment);
         }
       }
     )
@@ -46,7 +45,6 @@ export class DetailComponent implements OnInit {
   updata(){
     this.dataService.storagePhotos()
     .subscribe((response:Response)=>{
-      console.log(response);
     })
   }
 }

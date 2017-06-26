@@ -1,4 +1,4 @@
-import { PhotoComment } from '../../shared/photocomment.model';
+import { PhotoComment } from './photoComment/photocomment.model';
 
 export class PhotoBrick {
   public name:string;

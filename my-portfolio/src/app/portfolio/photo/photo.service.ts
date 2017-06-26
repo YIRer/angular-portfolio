@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Router } from '@angular/router';
 
-import { PhotoComment } from '../../shared/photocomment.model'
+import { PhotoComment } from './photoComment/photocomment.model'
 import { PhotoBrick } from './photo.model';
 
 @Injectable()
@@ -54,7 +54,6 @@ export class PhotoService{
   setPhotos(photos:PhotoBrick[]){
     this.photos = photos;
     this.PhotosIds = this.photos.length;
-    console.log(this.photos)
     this.photoListChanged.next(this.photos);
   }
 
@@ -102,9 +101,4 @@ export class PhotoService{
       }
     }
   }
-  // reverseFn(photos : PhotoBrick[]){
-  //   this.photos = photos.reverse();
-  //   console.log(this.photos);
-  //   this.photoListChanged.next(this.photos);
-  // }
 }

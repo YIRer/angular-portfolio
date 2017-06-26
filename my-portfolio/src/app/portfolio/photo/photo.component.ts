@@ -39,7 +39,6 @@ export class PhotoComponent implements OnInit, OnDestroy {
         this.imageCheck++
 
         if(this.imageCheck === this.photos.length){
-            console.log("complate!");
             setTimeout(()=>{
               $('#loading').addClass("hide");
               $('#gallery-box').removeClass("hide");
